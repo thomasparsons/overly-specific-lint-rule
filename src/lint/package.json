@@ -1,0 +1,10 @@
+{
+  "name": "eslint-plugin-my-custom-rules",
+  "version": "0.1.0",
+  "description": "custom lint rules",
+  "author": "Tom Parsons",
+  "main": "rules/index.js",
+  "scripts": {
+    "test": "../../node_modules/jest/bin/jest.js"
+  }
+}

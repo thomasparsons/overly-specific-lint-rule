@@ -1,60 +1,48 @@
 {
-  "private": true,
-  "workspaces": [
-    "packages/*"
-  ],
+  "name": "my-app",
+  "version": "0.1.0",
+  "private": false,
   "scripts": {
-    "build": "cd packages/react-scripts && node bin/react-scripts.js build",
-    "changelog": "lerna-changelog",
-    "create-react-app": "node tasks/cra.js",
-    "e2e": "tasks/e2e-simple.sh",
-    "e2e:docker": "tasks/local-test.sh",
-    "postinstall": "cd packages/react-error-overlay/ && yarn build:prod",
-    "publish": "tasks/publish.sh",
-    "start": "cd packages/react-scripts && node bin/react-scripts.js start",
-    "screencast": "node ./tasks/screencast.js",
-    "screencast:error": "svg-term --cast jyu19xGl88FQ3poMY8Hbmfw8y --out screencast-error.svg --window --at 12000 --no-cursor",
-    "alex": "alex .",
-    "test": "cd packages/react-scripts && node bin/react-scripts.js test",
-    "format": "prettier --trailing-comma es5 --single-quote --write 'packages/*/*.js' 'packages/*/!(node_modules)/**/*.js'",
-    "compile:lockfile": "node tasks/compile-lockfile.js"
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject",
+    "lint": "eslint 'src/**/*.js'"
+  },
+  "dependencies": {
+    "@testing-library/jest-dom": "^4.2.4",
+    "@testing-library/react": "^9.3.2",
+    "@testing-library/user-event": "^7.1.2",
+    "react": "^16.12.0",
+    "react-dom": "^16.12.0",
+    "react-scripts": "3.3.0"
   },
   "devDependencies": {
-    "@testing-library/jest-dom": "^4.2.0",
-    "@testing-library/react": "^9.3.0",
-    "@testing-library/user-event": "^7.1.2",
-    "alex": "^8.0.0",
-    "eslint": "^6.1.0",
-    "execa": "1.0.0",
-    "fs-extra": "^7.0.1",
-    "get-port": "^4.2.0",
-    "globby": "^9.1.0",
-    "husky": "^1.3.1",
-    "jest": "24.9.0",
-    "lerna": "3.19.0",
-    "lerna-changelog": "~0.8.2",
-    "lint-staged": "^8.0.4",
-    "meow": "^5.0.0",
-    "multimatch": "^3.0.0",
-    "prettier": "1.19.1",
-    "puppeteer": "^2.0.0",
-    "strip-ansi": "^5.1.0",
-    "svg-term-cli": "^2.1.1",
-    "tempy": "^0.2.1",
-    "wait-for-localhost": "^3.1.0"
+    "babel-eslint": "^10.0.3",
+    "babel-loader": "^8.0.6",
+    "eslint": "^6.7.2",
+    "eslint-config-airbnb": "^18.0.1",
+    "eslint-loader": "^3.0.3",
+    "eslint-plugin-import": "^2.19.1",
+    "eslint-plugin-jsx-a11y": "^6.2.3",
+    "eslint-plugin-react": "^7.17.0",
+    "eslint-plugin-react-hooks": "^1.7.0",
+
+    "eslint-plugin-my-custom-rules": "file:src/lint"
   },
-  "husky": {
-    "hooks": {
-      "pre-commit": "lint-staged"
-    }
+  "eslintConfig": {
+    "extends": "react-app"
   },
-  "lint-staged": {
-    "*.{js,md,css,html}": [
-      "prettier --trailing-comma es5 --single-quote --write",
-      "git add"
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
     ],
-    "yarn.lock": [
-      "git rm --cached"
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
     ]
   }
 }
